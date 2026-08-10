@@ -41,6 +41,17 @@ To convert scheme awareness into physical real-world execution, SAATHI will deep
 
 ---
 
+## Key Capabilities
+1.Problem-First Navigation: Converts natural voice inputs (such as "I want to start a food stall" or "I need help paying my mother's hospital bills") into           tailored, eligible welfare schemes without requiring domain knowledge.
+
+2. Multilingual & Voice-Native: Designed for natural, spoken conversations across Hindi, English, Hinglish, and regional languages.
+
+3. Progressive Interviewing: Asks minimal, targeted follow-up questions to clarify eligibility criteria (e.g., location, income bracket, occupation) rather than      presenting overwhelming forms.
+
+4. Explainable & Grounded Guidance: Translates dense legal jargon into clear steps, outlining why a scheme matches, what documents are required, and where to       apply —backed directly by verified official sources.
+
+5. Action-Oriented Location Intelligence: Bridges information with physical execution by helping users discover nearest local service centers (CSCs), Tehsil          offices, and government facilities.
+
 # Install dependencies and start server
 pip install -r requirements.txt
 uvicorn app.main:app --reload
