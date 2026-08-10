@@ -1,39 +1,46 @@
-# Saathi Voice
+# 🫱🏻‍🫲🏽 SAATHI
+> **Your Voice. Your Problem. Your Assistance.**
 
-Saathi is an Android voice assistant app built with Jetpack Compose. It combines voice input, text-to-speech, and scheme discovery workflows to help users interact with the app hands-free.
+SAATHI is a voice-first, multilingual AI public-assistance navigator for Indian citizens. Instead of searching complex portals for government schemes, citizens state their real-life problems in their spoken language, and SAATHI guides them to the right assistance, required documents, and official application sources.
 
-## Features
+---
 
-- Voice capture with foreground microphone service support
-- Text-to-speech output for assistant responses
-- Home, conversation, history, profile, privacy, and onboarding screens
-- Scheme browsing and eligibility workflows
-- Local persistence and repository-backed data handling
-- Network integration for assistant and recommendation APIs
+## 🛠 Tech Stack
 
-## Tech Stack
+| Layer | Technology & Frameworks |
+|---|---|
+| **Mobile App (Android)** | Kotlin, Jetpack Compose, Material 3, MVVM, Coroutines, StateFlow, Retrofit, OkHttp |
+| **Backend & APIs** | Python, FastAPI, Pydantic, SQLAlchemy, Docker, Pytest |
+| **Databases** | SQLite (User Profiles & History), Qdrant (Vector Database for Semantic RAG) |
+| **AI & Voice Engine** | **Rime Labs AI** (Ultra-low latency Text-to-Speech & Speech-to-Text), LLM Orchestration, Semantic Chunking |
 
-- Kotlin
-- Jetpack Compose
-- AndroidX Navigation
-- DataStore Preferences
-- Ktor, Retrofit, OkHttp
-- Google Generative AI integration
+---
 
-## Requirements
+## 🎙️ Hands-Free "Wake Up" Hotword Engine
 
-- Android Studio latest stable release
-- JDK 11
-- Android SDK 37 or compatible build tools
+SAATHI incorporates a background listening engine to make the platform accessible without physical interaction:
 
-## Setup
+* **Wake-Word Listener:** Runs locally on-device to detect `"Wake up SAATHI"` or `"Hi SAATHI"` phrases without requiring screen taps.
+* **Immediate Audio Pipeline:** Wakes the assistant and opens a live bidirectional voice stream powered by **Rime** as soon as the hotword is uttered.
+* **Low-Power Audio Buffer:** Utilizes lightweight Android native audio APIs to conserve battery life during background listening.
 
-1. Open the project in Android Studio.
-2. Sync Gradle.
-3. Add any required API credentials to your local environment or config files as needed.
-4. Run the `app` module on an emulator or physical device.
+---
 
-## Notes
+## 🗺️ Future Google Maps Integration
 
-- `google-services.json` is included for Firebase/Google services setup.
-- The app requests microphone and internet permissions at runtime or install time.
+To convert scheme awareness into physical real-world execution, SAATHI will deeply integrate Google Maps Platform services:
+
+1. **Nearest Service Center Discovery (Google Places API)**
+   * Locates local Common Service Centres (CSCs), Tehsil offices, district healthcare centers, and public offices relevant to the specific scheme.
+2. **Location-Based Jurisdiction Filtering (Google Geocoding API)**
+   * Translates real-time GPS coordinates into administrative boundaries (State, District, Block) to automatically filter eligible regional schemes.
+3. **Turn-by-Turn Navigation & Maps SDK (Google Maps SDK & Directions API)**
+   * Embeds interactive maps in the application, rendering visual routes and transit directions to application submission points.
+4. **Distance & Travel Time Estimation (Google Distance Matrix API)**
+   * Ranks centers by live travel time and traffic conditions, ensuring users are directed to accessible facilities.
+
+---
+
+# Install dependencies and start server
+pip install -r requirements.txt
+uvicorn app.main:app --reload
